@@ -1,8 +1,3 @@
-Contributors:
-
-Muralidhar Eppakayala
-
-Haldar Anirban
 
 # Cloud Native Application Framework on Docker
 
