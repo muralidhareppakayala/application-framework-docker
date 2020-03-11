@@ -1,0 +1,11 @@
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'application-framework-docker'
+include 'eureka-service-registry'
+include 'user-service'
+include 'course-service'
+include 'zuul-api-gateway'
+

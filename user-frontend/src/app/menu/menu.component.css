@@ -1,0 +1,14 @@
+.bct-header {
+    background:#fff;
+    color: #fff;
+    padding: 10px 0 10px;
+    border-bottom: 1px solid #88c700;
+}
+.bct-header.authorizedPage {
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+.bct-header .title img {
+    width: 100%;
+    margin-top: 10px;
+}

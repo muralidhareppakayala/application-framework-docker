@@ -1,0 +1,16 @@
+<p>
+  welcome {{username}}
+
+  You can manage your todos <a routerLink="/todos">here</a> 
+
+</p>
+
+<div class="container">
+  click here to get Message
+  <br>
+  <button (click)="getHelloMessagewithPath()" class="btn btn-success">getHelloMessage</button>
+  <br>
+  <div class="container" *ngIf="message">
+  after Service call  we got ->  {{message}}
+  </div>
+</div>

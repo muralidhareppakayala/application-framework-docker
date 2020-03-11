@@ -1,0 +1,129 @@
+<!-- <div >-->
+
+	<div class="section-header clearfix" style="width: 100%"> 
+
+	  <div *ngIf="!isSubmitClicked" class="custom-header" style="width: 100%">
+		<h3>USER REGISRATION</h3>
+		</div>
+		<div *ngIf="!isServiceDown">
+		<div *ngIf="isSubmitClicked" class="custom-header">
+			<h3>HOME</h3>
+			</div>
+	
+<!--<div >
+		 <h4>Welcome {{$root.globals.firstname}} to Data Dictionary Portal </h4> -->
+		<!-- <div >
+		*ngIf="dataPresent"
+		<div > -->
+					
+
+			
+ <div class="col-sm-9" style="padding: 10px">
+    <div class="tab-content">
+        <div *ngIf="!isSubmitClicked">
+
+            <div class="form-group row" >
+                <label   class="col-md-4 form-label"><strong><span class="asterik">*</span>username</strong></label>
+                <div class="col-md-7">
+                   
+                <input type="text" class="form-control" name="userId" [(ngModel)]="userId"/>
+                </div>
+                
+			  </div> 
+			  <div class="form-group row" >
+					<label   class="col-md-4 form-label"><strong><span class="asterik">*</span>password</strong></label>
+					<div class="col-md-7">
+						 
+					<input type="password" class="form-control" name="password" [(ngModel)]="password"/>
+					</div>
+					
+				</div>
+             <div class="form-group row" >
+				<label   class="col-md-4 form-label"><strong><span class="asterik">*</span>First Name</strong></label>
+				<div class="col-md-7">
+					 
+				<input type="text" class="form-control" name="firstName" [(ngModel)]="firstName"/>
+				</div>
+				
+			</div> 
+			 <div class="form-group row">
+				<label class="col-md-4 form-label"><strong><span class="asterik">*</span>Last Name</strong></label>
+				<div class="col-md-7">
+					 
+				<input type="text" class="form-control" name="lastName" [(ngModel)]="lastName"/>
+				</div>
+				
+      </div> 
+      
+      <div class="form-group row">
+				<label class="col-md-4 form-label"><strong><span class="asterik">*</span>Email Id</strong></label>
+				<div class="col-md-7">
+					 
+				<input type="text" class="form-control" name="email" [(ngModel)]="email"/>
+				</div>
+				
+      </div>
+      
+      <div class="form-group row">
+				<label class="col-md-4 form-label"><strong><span class="asterik">*</span>Contact No</strong></label>
+				<div class="col-md-7">
+					 
+				<input type="text" class="form-control" name="phNumber" [(ngModel)]="phNumber"/>
+				</div>
+				
+			</div>
+			
+	       		
+	        
+			<div class="form-group row">
+			<!-- <div class="col-md-6">	
+			 	<input type="submit" value="view" ng-click="preview2()" class="btn btn-primary btn-submit" id="preview2" ng-disabled="!datalist.length==0"/>
+			 	<span class="small_loader hidden">&nbsp;</span>
+				 </div> -->
+				 
+				 <div class="col-md-6">	
+					<input type="submit" value="Sign up" (click)="onPost()" class="btn btn-primary btn-submit" id="submit2" />
+					<span class="small_loader hidden">&nbsp;</span>
+					</div>
+			</div>
+				
+			 	
+			 <!-- </form>  -->
+		</div>
+
+		<div *ngIf="isSubmitClicked" class="custom-message">
+			<h2>Welcome {{userId}} !!</h2>
+			</div>
+		
+			
+		
+		
+	
+</div>
+</div>
+<div *ngIf="isSubmitClicked" class="container">
+		<app-courses></app-courses>
+</div>
+	</div>
+	</div>
+
+	<div *ngIf="isServiceDown">
+   <p> Oops!  looks like Our <strong> User Registration </strong> Service is down.
+	   <br>
+	   <br>
+	   Please try after some time.
+
+	   <br>
+	   <br>
+	   we regret the inconvenience caused
+   </p>
+	</div>
+<!-- </div>
+
+
+</div>
+</div>
+
+	</div>  -->
+
+

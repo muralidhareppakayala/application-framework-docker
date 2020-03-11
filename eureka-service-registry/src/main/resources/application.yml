@@ -1,0 +1,50 @@
+spring: 
+  application:
+    name: ${springboot.app.name:eureka-serviceregistry}
+  profiles:
+      active: default
+
+---
+spring:
+  profiles: default
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: ${springboot.app.name:eureka-serviceregistry}
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${server.port}/eureka/
+
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+
+
+
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    # be sure no spaces are at the end of this line
+    # because apparently the hostname is not trimmed
+    hostname: ${vcap.application.uris[0]}
+    # just to make sure the instance-id does not change, make it the route
+    instance-id: ${vcap.application.uris[0]}
+    non-secure-port: 80
+    secure-port: 443
+    secure-port-enabled: true  
+    # set these otherwise the info and health will default to port 8080
+    status-page-url: https://${vcap.application.uris[0]}/actuator/info
+    health-check-url: https://${vcap.application.uris[0]}/actuator/health
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URIS}

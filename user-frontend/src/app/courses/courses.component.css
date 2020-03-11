@@ -1,0 +1,10 @@
+.table-wrapper{
+    overflow: auto;
+    height: 550px;
+  }
+  
+  .table-wrapper thead th {
+    position: sticky;
+    top: 0;
+    background-color: #88c700;
+  }

@@ -1,0 +1,60 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles: default
+  application:
+    # sets the name in Eureka & Zipkin
+    name: course-service
+  # show the /routes output in a formatted (prettier) way
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  platform: h2
+  jpa:
+     database-platform: org.hibernate.dialect.H2Dialect
+     hibernate:
+        ddl-auto: update
+     show-sql: true
+  h2:
+    console:
+       enabled: true
+       path: /h2-console
+       settings:
+        web-allow-others: true
+
+server:
+  port: 8092
+
+# Switch Eureka-Usage on & off
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+
+# Increase the Hystrix timeout to 60s (globally)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+# No ugly logging pollution, if Eureka isn´t up or found
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF

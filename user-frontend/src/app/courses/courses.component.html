@@ -1,0 +1,31 @@
+<h1> Our Offerings</h1>
+<!-- <div class="container"> -->
+<div  class="table-wrapper">
+<table  class="table dataTable  table-striped table-bordered table-responsive" style="margin-bottom:0px">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Author Name</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th >
+        <span >Actions</span> 
+     </th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{course.course_name}}</td>
+      <td>{{course.author_name}} </td>
+      <td>{{course.category}}</td>
+      <td>{{course.description}}</td>
+      <td>{{course.duration}}</td>
+      <td>
+          <button type="button" class="btn btn-success" >ADD TO CART</button></td>
+          <!-- (click)="router.navigate(['/registration']);" -->
+    </tr>
+  </tbody>  
+</table>
+</div>

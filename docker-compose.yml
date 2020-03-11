@@ -1,0 +1,64 @@
+version: '3.3'
+
+services:
+
+ eureka-service-registry:
+  build: ./eureka-service-registry
+  ports:
+   - "8761:8761"
+  tty:
+    true
+  restart:
+    unless-stopped
+
+ # no portbinding here - the actual services should be accessible through Zuul proxy
+ user-service:
+  build: ./user-service
+  ports:
+   - "8095"
+  environment:
+    - REGISTRY_HOST=eureka-service-registry
+  tty:
+    true
+  restart:
+    unless-stopped
+    
+ # no portbinding here - the actual services should be accessible through Zuul proxy
+ course-service:
+  build: ./course-service
+  ports:
+   - "8092"
+  environment:
+    - REGISTRY_HOST=eureka-service-registry
+  tty:
+    true
+  restart:
+    unless-stopped
+
+ zuul-api-gateway:
+  build: ./zuul-api-gateway
+  ports:
+   - "8080:8080"
+  environment:
+    - REGISTRY_HOST=eureka-service-registry
+  tty:
+    true
+  restart:
+    unless-stopped
+
+ angular:
+  build: ./user-frontend
+  container_name: user-frontend-container
+  ports:
+   - "4200:4200"
+  tty:
+    true
+  restart:
+    unless-stopped
+
+# "Windows Docker native"-specific configuration
+
+networks:
+ default:
+  external:
+   name: "nat"
